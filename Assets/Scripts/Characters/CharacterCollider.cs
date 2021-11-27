@@ -10,6 +10,7 @@ using UnityEngine.AddressableAssets;
 [RequireComponent(typeof(AudioSource))]
 public class CharacterCollider : MonoBehaviour
 {
+	public List<Obstacle> ObstaclesHit = new List<Obstacle>();
 	static int s_HitHash = Animator.StringToHash("Hit");
     static int s_BlinkingValueHash;
 
@@ -136,7 +137,9 @@ public class CharacterCollider : MonoBehaviour
 			if (ob != null)
 			{
 				int randomNumber = (int)Random.Range(1, 10);
+				ob.name = ob.name + "" + randomNumber.ToString();
 				Debug.Log(ob.name + " " + randomNumber);
+				ObstaclesHit.Add(ob);
 				ob.Impacted();
 			}
 			else
