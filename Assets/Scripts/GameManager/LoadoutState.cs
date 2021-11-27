@@ -171,7 +171,7 @@ public class LoadoutState : AState
             m_Character.transform.Rotate(0, k_CharacterRotationSpeed * Time.deltaTime, 0, Space.Self);
         }
 
-		charSelect.gameObject.SetActive(PlayerData.instance.characters.Count > 1);
+        charSelect.gameObject.SetActive(PlayerData.instance.characters.Count > 1);
 		themeSelect.gameObject.SetActive(PlayerData.instance.themes.Count > 1);
     }
 
@@ -182,11 +182,12 @@ public class LoadoutState : AState
 
     public void ChangeCharacter(int dir)
     {
-        PlayerData.instance.usedCharacter += dir;
-        if (PlayerData.instance.usedCharacter >= PlayerData.instance.characters.Count)
+        Debug.Log(PlayerData.instance.usedCharacter);
+
+        if (PlayerData.instance.usedCharacter == 0)
+            PlayerData.instance.usedCharacter = 1;
+        else if (PlayerData.instance.usedCharacter == 1)
             PlayerData.instance.usedCharacter = 0;
-        else if(PlayerData.instance.usedCharacter < 0)
-            PlayerData.instance.usedCharacter = PlayerData.instance.characters.Count-1;
 
         StartCoroutine(PopulateCharacters());
     }
@@ -237,7 +238,7 @@ public class LoadoutState : AState
 
     public IEnumerator PopulateCharacters()
     {
-		accessoriesSelector.gameObject.SetActive(false);
+        accessoriesSelector.gameObject.SetActive(false);
         PlayerData.instance.usedAccessory = -1;
         m_UsedAccessory = -1;
 
@@ -248,6 +249,7 @@ public class LoadoutState : AState
             while (newChar == null)
             {
                 Character c = CharacterDatabase.GetCharacter(PlayerData.instance.characters[PlayerData.instance.usedCharacter]);
+                PlayerData.instance.AddCharacter("Rubbish Raccoon");
 
                 if (c != null)
                 {

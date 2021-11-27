@@ -48,7 +48,7 @@ public class PlayerData
 	public string previousName = "Trash Cat";
 
     public bool licenceAccepted;
-    public bool tutorialDone;
+    public bool tutorialDone = true;
 
 	public float masterVolume = float.MinValue, musicVolume = float.MinValue, masterSFXVolume = float.MinValue;
 
@@ -245,7 +245,8 @@ public class PlayerData
         m_Instance.premium = 0;
 
 		m_Instance.characters.Add("Trash Cat");
-		m_Instance.themes.Add("Day");
+        m_Instance.characters.Add("Rubbish Raccoon");
+        m_Instance.themes.Add("Day");
 
         m_Instance.ftueLevel = 0;
         m_Instance.rank = 0;
