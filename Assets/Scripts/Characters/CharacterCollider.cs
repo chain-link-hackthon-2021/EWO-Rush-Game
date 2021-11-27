@@ -135,6 +135,8 @@ public class CharacterCollider : MonoBehaviour
 
 			if (ob != null)
 			{
+				int randomNumber = (int)Random.Range(1, 10);
+				Debug.Log(ob.name + " " + randomNumber);
 				ob.Impacted();
 			}
 			else
