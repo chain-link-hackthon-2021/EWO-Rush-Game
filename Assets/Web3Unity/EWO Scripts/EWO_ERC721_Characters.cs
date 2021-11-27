@@ -62,7 +62,7 @@ public class JsonItem
      public string name;
 
  }
-public class EWOERC721BalanceOfExample : MonoBehaviour
+public class EWO_ERC721_Characters : MonoBehaviour
 {
         string chain = "ethereum";
         string network = "rinkeby";

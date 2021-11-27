@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 #if UNITY_WEBGL
-public class EWOPlayGame : MonoBehaviour
+public class EWO_PlayGame : MonoBehaviour
 {
     [DllImport("__Internal")]
     private static extern void Web3Connect();
