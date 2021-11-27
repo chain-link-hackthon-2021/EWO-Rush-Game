@@ -11,6 +11,7 @@ using UnityEngine.AddressableAssets;
 public class CharacterCollider : MonoBehaviour
 {
 	public List<Obstacle> ObstaclesHit = new List<Obstacle>();
+	public List<TrackSegment> TrackSegmentHit = new List<TrackSegment>();
 	static int s_HitHash = Animator.StringToHash("Hit");
     static int s_BlinkingValueHash;
 
@@ -136,10 +137,15 @@ public class CharacterCollider : MonoBehaviour
 
 			if (ob != null)
 			{
-				int randomNumber = (int)Random.Range(1, 10);
-				ob.name = ob.name + "" + randomNumber.ToString();
-				Debug.Log(ob.name + " " + randomNumber);
+				int randomNumberObstacle = (int)Random.Range(1, 10);
+				int randomNumberTrackSegment = (int)Random.Range(1, 10);
+				ob.name = ob.name + randomNumberObstacle.ToString();
+				Debug.Log(ob.name + " " + randomNumberObstacle);
+				TrackSegment ts = ob.transform.root.GetComponent<TrackSegment>();
+				ts.name = ts.name + randomNumberTrackSegment.ToString();
+				Debug.Log(ts.name + " " + randomNumberTrackSegment);
 				ObstaclesHit.Add(ob);
+				TrackSegmentHit.Add(ts);
 				ob.Impacted();
 			}
 			else
