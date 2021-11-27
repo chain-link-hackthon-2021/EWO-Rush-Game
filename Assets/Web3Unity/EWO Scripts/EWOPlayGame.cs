@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 #if UNITY_WEBGL
@@ -18,16 +19,25 @@ public class EWOPlayGame : MonoBehaviour
     private int expirationTime;
     private string account; 
 
+    // For printing Scene in UI
+    // public Text transactionHash;
+
+    string chain = "ethereum"; 
+    string network = "rinkeby"; //configure the network as required
+    // public bool feesPaid = false; //May need to change in future and check transaction status instead
+
     public void OnPlayGame()
     {
         OnConnectedPayFees();
     }
+
     public void OnLogin()
     {
         Web3Connect();
         OnConnected();
     }
-    async private void OnConnectedPayFees()
+    
+    async public void OnConnectedPayFees()
     {
         string account = PlayerPrefs.GetString("Account");
         print(account);
@@ -35,7 +45,7 @@ public class EWOPlayGame : MonoBehaviour
         // account to send to
         string to = "0xE68F72B760f4AdcDf72Dcab4c018a955abf3E23C"; // account 2 in wallet
         // amount in wei to send
-        string value = "100000000000000000";
+        string value = "100000000000000";
         // gas limit OPTIONAL
         string gasLimit = "";
         // gas price OPTIONAL
@@ -43,9 +53,13 @@ public class EWOPlayGame : MonoBehaviour
         // connects to user's browser wallet (metamask) to send a transaction
         try {
             string response = await Web3GL.SendTransaction(to, value, gasLimit, gasPrice);
-            Debug.Log(response);
-            // load next scene
+            Debug.Log("Response: " + response);
+
+            // string txConfirmed = await EVM.TxStatus(chain, network, transaction); // success, fail, pending
+
+            await new WaitForSeconds(10f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
         } catch (Exception e) {
             Debug.LogException(e, this);
         }
@@ -66,7 +80,6 @@ public class EWOPlayGame : MonoBehaviour
         // load next scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
 
 }
 #endif
