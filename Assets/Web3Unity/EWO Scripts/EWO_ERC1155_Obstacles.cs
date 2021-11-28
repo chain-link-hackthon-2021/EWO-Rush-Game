@@ -10,6 +10,11 @@ using UnityEngine.UI;
 
 public class EWO_ERC1155_Obstacles : MonoBehaviour
 {
+    public Text Obstacle1;
+    public Text Obstacle2;
+    public Text Obstacle3;
+    public Text Land1;
+
     public int[] obstacleIdValues; // [3, 5, 3]
     public int landIdValues; // [5]
     public int[] obstacleIdType;   // [1, 2, 0]
@@ -74,6 +79,11 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
         string args2 = JsonConvert.SerializeObject(obj2);
         obstacleowner3 = await EVM.Call(chain, network, contract, abi, method, args2);
 
+        Obstacle1.text = obstacleowner1;
+        Obstacle2.text = obstacleowner2;
+        Obstacle3.text = obstacleowner3;
+        
+
         Debug.Log(obstacleowner1);
         Debug.Log(obstacleowner2);
         Debug.Log(obstacleowner3);
@@ -83,6 +93,9 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
         string[] obj3 = { landIdType, landIdValues.ToString() }; //obstacleIdValues ~ tokenId
         string args3 = JsonConvert.SerializeObject(obj3);
         landOwner = await EVM.Call(chain, network, contract, abi, method, args3);
+
+        Land1.text = landOwner;
+
         Debug.Log(landOwner);
 
     }
