@@ -75,7 +75,8 @@ public class EWO_ERC721_Characters : MonoBehaviour
         string chain = "ethereum";
         string network = "rinkeby";
         string contract = "0x8B7995c357592Ee93FD88bA16e146E619FcCFCD0";
-        string account = "0xbd53Ef09C8e5C31004d57E7D297f221C08560FF1";
+        // string account = "0xbd53Ef09C8e5C31004d57E7D297f221C08560FF1";
+        string account="";
 
         string method = "tokenOfOwnerByIndex";
         // abi in json format
@@ -87,6 +88,7 @@ public class EWO_ERC721_Characters : MonoBehaviour
     private void Start()
     {
         //HideCharacterSelectUI();
+        account = PlayerPrefs.GetString("Account"); //get player account
     }
     public void OnBalanceOf()
     {
