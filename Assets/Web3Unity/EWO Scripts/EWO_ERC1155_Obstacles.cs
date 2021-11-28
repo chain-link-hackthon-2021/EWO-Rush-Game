@@ -17,33 +17,24 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
 
     public void generateObstacleList()
     {
-        generateRandomObstacleHitList();
-        fetchObstacleIdType(); // This is 0 for GREEN_DUSTBIN, 1 for RED_BAR and 2 for BLUE_BAR
+        //generateRandomObstacleHitList();
+        //fetchObstacleIdType(); // This is 0 for GREEN_DUSTBIN, 1 for RED_BAR and 2 for BLUE_BAR
     }
 
-    public void generateRandomObstacleHitList()
+    public void fetchObstacleHitList(int obHit1, int obHit2, int obHit3)
     {
-        Random.InitState(42);
         obstacleIdValues = new int[3];
-        for (int i = 0; i < 3; i++)
-        {
-            int randomNumber = (int)Random.Range(0, 9);
-            obstacleIdValues[i] = randomNumber;
-            Debug.Log(obstacleIdValues[i]);
-        }
+        obstacleIdValues[0] = obHit1;
+        obstacleIdValues[1] = obHit2;
+        obstacleIdValues[2] = obHit3;
     }
 
-    public void fetchObstacleIdType()
+    public void fetchObstacleIdType(int obType1, int obType2, int obType3)
     {
-        Random.InitState(53);
         obstacleIdType = new int[3];
-        Debug.Log("Fetching obstacle id types...");
-        for (int i = 0; i < 3; i++)
-        {
-            int randomNumber = (int)Random.Range(0, 3);
-            obstacleIdType[i] = randomNumber;
-            Debug.Log(obstacleIdType[i]);
-        }
+        obstacleIdType[0] = obType1;
+        obstacleIdType[1] = obType2;
+        obstacleIdType[2] = obType3;
     }
 
     // set chain: ethereum, moonbeam, polygon etc
@@ -57,11 +48,13 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
     // address of contract
     string contract = "0x4c6329444C47Fad0B1187a1e839D4645C991308B"; //EWO_Nfts contract
 
-    public void OngetAddressofOwner(){
+    public void OngetAddressofOwner()
+    {
         getAddressofOwner();
     }
 
-    public void OndistributeRewards(){
+    public void OndistributeRewards()
+    {
         getAddressofOwner();
         distributeRewards();
     }
@@ -69,38 +62,38 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
     async void getAddressofOwner()
     {
         // Assigning obstacle Owners Addresses
-        string[] obj0 = { obstacleIdType[0].ToString(), obstacleIdValues[0].ToString()}; //obstacleIdValues ~ tokenId
+        string[] obj0 = { obstacleIdType[0].ToString(), obstacleIdValues[0].ToString() }; //obstacleIdValues ~ tokenId
         string args0 = JsonConvert.SerializeObject(obj0);
         obstacleowner1 = await EVM.Call(chain, network, contract, abi, method, args0);
-        
-        string[] obj1 = { obstacleIdType[1].ToString(), obstacleIdValues[1].ToString()}; //obstacleIdValues ~ tokenId
+
+        string[] obj1 = { obstacleIdType[1].ToString(), obstacleIdValues[1].ToString() }; //obstacleIdValues ~ tokenId
         string args1 = JsonConvert.SerializeObject(obj1);
         obstacleowner2 = await EVM.Call(chain, network, contract, abi, method, args1);
-        
-        string[] obj2 = { obstacleIdType[2].ToString(), obstacleIdValues[2].ToString()}; //obstacleIdValues ~ tokenId
+
+        string[] obj2 = { obstacleIdType[2].ToString(), obstacleIdValues[2].ToString() }; //obstacleIdValues ~ tokenId
         string args2 = JsonConvert.SerializeObject(obj2);
         obstacleowner3 = await EVM.Call(chain, network, contract, abi, method, args2);
-        
+
         Debug.Log(obstacleowner1);
         Debug.Log(obstacleowner2);
         Debug.Log(obstacleowner3);
 
         // Assigning Land Owner Address
         string landIdType = "3";
-        string[] obj3 = { landIdType, landIdValues.ToString()}; //obstacleIdValues ~ tokenId
+        string[] obj3 = { landIdType, landIdValues.ToString() }; //obstacleIdValues ~ tokenId
         string args3 = JsonConvert.SerializeObject(obj3);
         landOwner = await EVM.Call(chain, network, contract, abi, method, args3);
         Debug.Log(landOwner);
 
     }
 
-    string abi2 = "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"claimLandNFTRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claimObstacleNFTRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getContractBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"landNFTRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"obstacleNFTRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"payFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"playerFeesPaid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_nftOwners\",\"type\":\"address[]\"}],\"name\":\"updateRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"; 
+    string abi2 = "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"claimLandNFTRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claimObstacleNFTRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getContractBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"landNFTRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"obstacleNFTRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"payFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"playerFeesPaid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_nftOwners\",\"type\":\"address[]\"}],\"name\":\"updateRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]";
 
     async void distributeRewards()
     {
         method = "updateRewards";
         contract = "0xf95334556F0CfE73B2d283849aE07b7DC80Df014"; // GamePool contract
-        string[] obj4 = {obstacleowner1, obstacleowner2, obstacleowner3, landOwner}; //obstacleIdValues ~ tokenId
+        string[] obj4 = { obstacleowner1, obstacleowner2, obstacleowner3, landOwner }; //obstacleIdValues ~ tokenId
         string args4 = JsonConvert.SerializeObject(obj4);
         string finalresponse = await EVM.Call(chain, network, contract, abi2, method, args4);
         Debug.Log(finalresponse);

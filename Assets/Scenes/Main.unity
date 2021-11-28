@@ -14543,7 +14543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5173e35522b43b644b3cb876a71640c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstaclesHit: []
+  ewo1115Obstacles: {fileID: 1621298885}
+  ObstacleType: 
+  ObstaclesHit: 
   TrackSegmentHit: []
   controller: {fileID: 2094493432}
   koParticle: {fileID: 2038194883}
@@ -21064,6 +21066,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2baa4bc67c4e75e49a853c80080adda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1621298885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621298883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef65e94834f3a741a20ccc03de2cb1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleIdValues: 
+  landIdValues: 0
+  obstacleIdType: 
+  obstacleowner1: 
+  obstacleowner2: 
+  obstacleowner3: 
+  landOwner: 
 --- !u!1 &1626268386
 GameObject:
   m_ObjectHideFlags: 0
