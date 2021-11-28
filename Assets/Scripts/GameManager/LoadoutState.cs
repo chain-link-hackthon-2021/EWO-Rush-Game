@@ -115,7 +115,11 @@ public class LoadoutState : AState
             }
             if(txConfirmed == "success"){
                 Debug.Log("txConfirmed must be success: " + txConfirmed);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                manager.SwitchState("Game");
+                // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else{
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
             // await new WaitForSeconds(10f);
 
