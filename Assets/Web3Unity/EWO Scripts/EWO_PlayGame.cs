@@ -55,10 +55,20 @@ public class EWO_PlayGame : MonoBehaviour
             string response = await Web3GL.SendTransaction(to, value, gasLimit, gasPrice);
             Debug.Log("Response: " + response);
 
-            // string txConfirmed = await EVM.TxStatus(chain, network, transaction); // success, fail, pending
+            string txConfirmed = "";
+            txConfirmed = await EVM.TxStatus(chain, network, response); // success, fail, pending
 
-            await new WaitForSeconds(10f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Debug.Log("txConfirmed: " + txConfirmed);
+
+            while(txConfirmed == "pending"){
+                await new WaitForSeconds(2f);
+                txConfirmed = await EVM.TxStatus(chain, network, response); // success, fail, pending
+            }
+            if(txConfirmed == "success"){
+                Debug.Log("txConfirmed must be success: " + txConfirmed);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            // await new WaitForSeconds(10f);
 
         } catch (Exception e) {
             Debug.LogException(e, this);
