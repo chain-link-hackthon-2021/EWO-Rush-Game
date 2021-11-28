@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class WebLogin : MonoBehaviour
 {
     public GameObject LoginUI;
+    public GameObject LoadCharUI;
+    public GameObject BackgroundUI;
 #if UNITY_EDITOR
     private void Start()
     {
         LoginUI.SetActive(false);
+        LoadCharUI.SetActive(true);
+        BackgroundUI.SetActive(true);
     }
 #else
     [DllImport("__Internal")]
@@ -27,7 +31,9 @@ public class WebLogin : MonoBehaviour
 
     private void Start()
     {
+        BackgroundUI.SetActive(true);
         LoginUI.SetActive(true);
+        LoadCharUI.SetActive(false);
     }
 
     public void OnLogin()
@@ -49,6 +55,7 @@ public class WebLogin : MonoBehaviour
         SetConnectAccount("");
 
         LoginUI.SetActive(false);
+        LoadCharUI.SetActive(true);
         // load next scene
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -59,8 +66,9 @@ public class WebLogin : MonoBehaviour
         PlayerPrefs.SetString("Account", "");
 
         LoginUI.SetActive(false);
+        LoadCharUI.SetActive(true);
         // move to next scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
   
 #endif

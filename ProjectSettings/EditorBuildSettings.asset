@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Web3Unity/Scenes/WebLogin.unity
-    guid: a1b2001e782bb47659732d7e2bcdc35f
-  - enabled: 0
-    path: Assets/Web3Unity/Scenes/WebPlayGameScene.unity
-    guid: 22e54d1de4553f24d9eba927577fb0b7
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 678d462d33ebdd7419400a9476bf6759
