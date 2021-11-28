@@ -169,19 +169,36 @@ public class EWO_ERC721_Characters : MonoBehaviour
 
         JsonItem jsonText = JsonConvert.DeserializeObject<JsonItem>(res);
 
+        /*
+        unit = 100/actual_range
+        Actual_value_for_game = Value/unit + Minimum range
+
+        agility = 11
+        Minimum = 2 to 22
+        unit = 100/(22-2)
+        unit = 100/20
+        unit = 5
+
+        Actual = 11/5 + 2
+
+        Actual: 4
+
+        jump : 2-6 = 4; 100/4 =
+        speed : 14-42 = 28; 100/28 =
+        */
         //speed
-        characterInputController.laneChangeSpeed = int.Parse(jsonText.value0);
+        characterInputController.laneChangeSpeed = (int.Parse(jsonText.value0) / (100 - 28)) + 14;
         //strength
-        characterInputController.jumpLength = float.Parse(jsonText.value1);
+        characterInputController.jumpLength = (float.Parse(jsonText.value1) / (100 / 4)) + 2;
         //agility
-        characterInputController.slideLength = float.Parse(jsonText.value2);
+        characterInputController.slideLength = (float.Parse(jsonText.value2) / (100 / 20)) + 2;
         //charisma
         //power
         //intelligence
 
         Speed.text = "Speed: " + characterInputController.laneChangeSpeed.ToString();
-        Strength.text = "Strength: " + characterInputController.jumpLength.ToString();
-        Agility.text = "Agility: " + characterInputController.slideLength.ToString();
+        Strength.text = "Strength: " + Mathf.RoundToInt(characterInputController.jumpLength).ToString();
+        Agility.text = "Agility: " + Mathf.RoundToInt(characterInputController.slideLength).ToString();
     }
 
 
