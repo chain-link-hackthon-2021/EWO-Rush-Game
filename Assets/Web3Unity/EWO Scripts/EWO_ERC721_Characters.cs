@@ -66,6 +66,8 @@ public class JsonItem
 public class EWO_ERC721_Characters : MonoBehaviour
 {
     public Text Speed;
+    public Text Strength;
+    public Text Agility;
 
     public GameObject PlayerStatDisplay;
     public GameObject PlayerModelDisplay;
@@ -166,16 +168,24 @@ public class EWO_ERC721_Characters : MonoBehaviour
         JsonItem jsonText = JsonConvert.DeserializeObject<JsonItem>(res);
 
         //speed
-        //characterInputController.laneChangeSpeed = int.Parse(jsonText.value0);
+        characterInputController.laneChangeSpeed = int.Parse(jsonText.value0);
         //strength
-        //characterInputController.jumpLength = float.Parse(jsonText.value1);
+        characterInputController.jumpLength = float.Parse(jsonText.value1);
         //agility
-        //characterInputController.slideLength = float.Parse(jsonText.value2);
+        characterInputController.slideLength = float.Parse(jsonText.value2);
         //charisma
         //power
         //intelligence
 
-        Debug.Log(characterInputController.laneChangeSpeed);
+        Speed.text = "Speed: " + characterInputController.laneChangeSpeed.ToString();
+        Strength.text = "Strength: " + characterInputController.jumpLength.ToString();
+        Agility.text = "Agility: " + characterInputController.slideLength.ToString();
+    }
+
+
+    void UpdateStats()
+    {
+        Speed.text = characterInputController.laneChangeSpeed.ToString();
     }
 
     public void ShowCharacterSelectUI()
