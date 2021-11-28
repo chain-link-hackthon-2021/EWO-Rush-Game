@@ -3086,7 +3086,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 78418883}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1621298883}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46f12e2f74f7c024daf90130a102ac70, type: 3}
@@ -18262,6 +18262,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1621298884}
+        m_TargetAssemblyTypeName: EWO_PlayGame, Assembly-CSharp
+        m_MethodName: OnPlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1393864685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21046,6 +21058,24 @@ Transform:
   m_Father: {fileID: 1958487561}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1621298883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3202647555363388937, guid: 2dedcffb3367f32498e3ed259b91fce7,
+    type: 3}
+  m_PrefabInstance: {fileID: 78418883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1621298884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621298883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2baa4bc67c4e75e49a853c80080adda2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1626268386
 GameObject:
   m_ObjectHideFlags: 0
