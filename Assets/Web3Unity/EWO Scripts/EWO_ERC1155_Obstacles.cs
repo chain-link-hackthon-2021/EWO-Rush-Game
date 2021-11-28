@@ -13,7 +13,7 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
     public int[] obstacleIdValues; // [3, 5, 3]
     public int landIdValues; // [5]
     public int[] obstacleIdType;   // [1, 2, 0]
-    public string obstacleowner1, obstacleowner2, obstacleowner3;
+    public string obstacleowner1, obstacleowner2, obstacleowner3, landOwner;
 
     public void generateObstacleList()
     {
@@ -61,14 +61,48 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
         getAddressofOwner();
     }
 
+    public void OndistributeRewards(){
+        distributeRewards();
+    }
+
     async void getAddressofOwner()
     {
-        // array of arguments for contract
-        string[] obj1 = { obstacleIdType[0].ToString(), obstacleIdValues[0].ToString()}; //obstacleIdValues ~ tokenId
+        // Assigning obstacle Owners Addresses
+        string[] obj0 = { obstacleIdType[0].ToString(), obstacleIdValues[0].ToString()}; //obstacleIdValues ~ tokenId
+        string args0 = JsonConvert.SerializeObject(obj0);
+        obstacleowner1 = await EVM.Call(chain, network, contract, abi, method, args0);
+        
+        string[] obj1 = { obstacleIdType[1].ToString(), obstacleIdValues[1].ToString()}; //obstacleIdValues ~ tokenId
         string args1 = JsonConvert.SerializeObject(obj1);
-        obstacleowner1 = await EVM.Call(chain, network, contract, abi, method, args1);
+        obstacleowner2 = await EVM.Call(chain, network, contract, abi, method, args1);
+        
+        string[] obj2 = { obstacleIdType[2].ToString(), obstacleIdValues[2].ToString()}; //obstacleIdValues ~ tokenId
+        string args2 = JsonConvert.SerializeObject(obj2);
+        obstacleowner3 = await EVM.Call(chain, network, contract, abi, method, args2);
+        
         Debug.Log(obstacleowner1);
+        Debug.Log(obstacleowner2);
+        Debug.Log(obstacleowner3);
+
+        // Assigning Land Owner Address
+        string landIdType = "3";
+        string[] obj3 = { landIdType, landIdValues.ToString()}; //obstacleIdValues ~ tokenId
+        string args3 = JsonConvert.SerializeObject(obj3);
+        landOwner = await EVM.Call(chain, network, contract, abi, method, args3);
+        Debug.Log(landOwner);
+
     }
+
+    async void distributeRewards()
+    {
+        method = "updateRewards";
+        contract = "0xf95334556F0CfE73B2d283849aE07b7DC80Df014";
+        string[] obj4 = {obstacleowner1, obstacleowner2, obstacleowner3, landOwner}; //obstacleIdValues ~ tokenId
+        string args4 = JsonConvert.SerializeObject(obj4);
+        string finalresponse = await EVM.Call(chain, network, contract, abi, method, args4);
+        Debug.Log(finalresponse);
+    }
+
 
 }
 
