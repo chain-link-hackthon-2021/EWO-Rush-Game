@@ -166,9 +166,11 @@ public class EWO_ERC721_Characters : MonoBehaviour
         JsonItem jsonText = JsonConvert.DeserializeObject<JsonItem>(res);
 
         //speed
-        characterInputController.laneChangeSpeed = int.Parse(jsonText.value0);
+        //characterInputController.laneChangeSpeed = int.Parse(jsonText.value0);
         //strength
+        //characterInputController.jumpLength = float.Parse(jsonText.value1);
         //agility
+        //characterInputController.slideLength = float.Parse(jsonText.value2);
         //charisma
         //power
         //intelligence

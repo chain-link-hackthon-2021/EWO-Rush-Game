@@ -1111,7 +1111,7 @@ PrefabInstance:
     - target: {fileID: 780284102297923514, guid: 2dedcffb3367f32498e3ed259b91fce7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3202647554465161248, guid: 2dedcffb3367f32498e3ed259b91fce7,
         type: 3}
@@ -1547,7 +1547,7 @@ PrefabInstance:
     - target: {fileID: 6233493613083617696, guid: 2dedcffb3367f32498e3ed259b91fce7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dedcffb3367f32498e3ed259b91fce7, type: 3}
@@ -14436,7 +14436,7 @@ MonoBehaviour:
   TrackSegmentHit: []
   controller: {fileID: 2094493432}
   koParticle: {fileID: 2038194883}
-  coinSound: {fileID: 8300000, guid: 62c15b4aac9d60e4a963f4f55d31e706, type: 3}
+  coinSound: {fileID: 0}
   premiumSound: {fileID: 8300000, guid: 553f1d03da54003479f6ff63d3155919, type: 3}
   magnetCoins: []
 --- !u!82 &1144878500
