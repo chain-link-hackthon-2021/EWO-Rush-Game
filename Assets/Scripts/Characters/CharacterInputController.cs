@@ -119,6 +119,7 @@ public class CharacterInputController : MonoBehaviour
 	// Called at the beginning of a run or rerun
 	public void Begin()
 	{
+		Debug.Log(character.characterName);
 		m_IsRunning = false;
         character.animator.SetBool(s_DeadHash, false);
 

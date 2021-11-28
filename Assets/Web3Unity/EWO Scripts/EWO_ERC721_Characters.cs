@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 /*
 0: "3"
 1: "41"
@@ -64,6 +65,11 @@ public class JsonItem
  }
 public class EWO_ERC721_Characters : MonoBehaviour
 {
+    public Text Speed;
+
+    public GameObject PlayerStatDisplay;
+    public GameObject PlayerModelDisplay;
+    public CharacterInputController characterInputController;
         string chain = "ethereum";
         string network = "rinkeby";
         string contract = "0x8B7995c357592Ee93FD88bA16e146E619FcCFCD0";
@@ -75,6 +81,11 @@ public class EWO_ERC721_Characters : MonoBehaviour
 
         string response0, response1;
         bool charactersLoaded = false;
+
+    private void Start()
+    {
+        //HideCharacterSelectUI();
+    }
     public void OnBalanceOf()
     {
         BalanceOf();
@@ -141,7 +152,40 @@ public class EWO_ERC721_Characters : MonoBehaviour
         print("Charisma: " + jsonText.value3);
         print("Power: " + jsonText.value4);
         print("Intelligence: " + jsonText.value5);
+    }
 
+    //stats are populated depending on the character selection screen
+    public async void PopulateStats()
+    {
+        string method = "getCharacterStats";
+        string[] obj3 = { PlayerData.instance.usedCharacter.ToString()};
+        string args3 = JsonConvert.SerializeObject(obj3);
+        string res = await EVM.Call(chain, network, contract, abi, method, args3);
+        // print(res);
+
+        JsonItem jsonText = JsonConvert.DeserializeObject<JsonItem>(res);
+
+        //speed
+        characterInputController.laneChangeSpeed = int.Parse(jsonText.value0);
+        //strength
+        //agility
+        //charisma
+        //power
+        //intelligence
+
+        Debug.Log(characterInputController.laneChangeSpeed);
+    }
+
+    public void ShowCharacterSelectUI()
+    {
+        PlayerStatDisplay.SetActive(true);
+        PlayerModelDisplay.SetActive(true);
+    }
+
+    public void HideCharacterSelectUI()
+    {
+        PlayerStatDisplay.SetActive(false);
+        PlayerModelDisplay.SetActive(false);
     }
 }
 

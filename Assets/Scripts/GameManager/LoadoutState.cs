@@ -16,6 +16,7 @@ using UnityEngine.Analytics;
 public class LoadoutState : AState
 {
     public Canvas inventoryCanvas;
+    public EWO_ERC721_Characters characterStats;
 
     [Header("Char UI")]
     public Text charNameDisplay;
@@ -185,9 +186,13 @@ public class LoadoutState : AState
         Debug.Log(PlayerData.instance.usedCharacter);
 
         if (PlayerData.instance.usedCharacter == 0)
+        {
             PlayerData.instance.usedCharacter = 1;
+        }
         else if (PlayerData.instance.usedCharacter == 1)
+        {
             PlayerData.instance.usedCharacter = 0;
+        }
 
         StartCoroutine(PopulateCharacters());
     }
