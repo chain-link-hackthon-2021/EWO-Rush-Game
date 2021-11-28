@@ -169,6 +169,10 @@ public class EWO_ERC721_Characters : MonoBehaviour
 
         JsonItem jsonText = JsonConvert.DeserializeObject<JsonItem>(res);
 
+        Speed.text = "Speed: " + jsonText.value0;
+        Strength.text = "Strength: " + jsonText.value1;
+        Agility.text = "Agility: " + jsonText.value2;
+
         /*
         unit = 100/actual_range
         Actual_value_for_game = Value/unit + Minimum range
@@ -196,9 +200,7 @@ public class EWO_ERC721_Characters : MonoBehaviour
         //power
         //intelligence
 
-        Speed.text = "Speed: " + characterInputController.laneChangeSpeed.ToString();
-        Strength.text = "Strength: " + Mathf.RoundToInt(characterInputController.jumpLength).ToString();
-        Agility.text = "Agility: " + Mathf.RoundToInt(characterInputController.slideLength).ToString();
+        
     }
 
 

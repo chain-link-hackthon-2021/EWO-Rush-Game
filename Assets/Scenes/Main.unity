@@ -5166,7 +5166,7 @@ MonoBehaviour:
   canvas: {fileID: 455205751}
   missionPopup: {fileID: 80306028}
   gameOverTheme: {fileID: 8300000, guid: 15e26518785848f4caf8ba236b4d0690, type: 3}
-  miniLeaderboard: {fileID: 859562874}
+  miniLeaderboard: {fileID: 0}
   fullLeaderboard: {fileID: 1815696064}
   addButton: {fileID: 0}
 --- !u!114 &455205753
@@ -5592,7 +5592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -250}
+  m_AnchoredPosition: {x: 750, y: -393.4286}
   m_SizeDelta: {x: 1440, y: 69.71429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508035512
@@ -9631,7 +9631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -250}
+  m_AnchoredPosition: {x: 750, y: -465.14288}
   m_SizeDelta: {x: 1440, y: 69.71429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819092560
@@ -10497,7 +10497,6 @@ GameObject:
   - component: {fileID: 859562871}
   - component: {fileID: 859562873}
   - component: {fileID: 859562872}
-  - component: {fileID: 859562874}
   m_Layer: 5
   m_Name: Highscore
   m_TagString: Untagged
@@ -10605,24 +10604,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859562869}
   m_CullTransparentMesh: 0
---- !u!114 &859562874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114000014220266562, guid: 1f84b5d1e4e73d74e90553e6f114ae20,
-    type: 2}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859562869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25fdfddad24797441b26b254fee9b949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entriesRoot: {fileID: 859562870}
-  entriesCount: 6
-  playerEntry: {fileID: 576403260}
-  forcePlayerDisplay: 1
-  displayPlayer: 1
 --- !u!1001 &860597505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12612,7 +12593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -250}
+  m_AnchoredPosition: {x: 750, y: -178.28572}
   m_SizeDelta: {x: 1440, y: 69.71429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012640077
@@ -16603,6 +16584,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1245236425}
         m_TargetAssemblyTypeName: 
         m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1621298885}
+        m_TargetAssemblyTypeName: EWO_ERC1155_Obstacles, Assembly-CSharp
+        m_MethodName: OndistributeRewards
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20715,7 +20708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -250}
+  m_AnchoredPosition: {x: 750, y: -106.57143}
   m_SizeDelta: {x: 1440, y: 69.71429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1486539374
@@ -27258,7 +27251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -250}
+  m_AnchoredPosition: {x: 750, y: -34.857143}
   m_SizeDelta: {x: 1440, y: 69.71429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934604557
@@ -28694,7 +28687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -250}
+  m_AnchoredPosition: {x: 750, y: -321.7143}
   m_SizeDelta: {x: 1440, y: 69.71429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037255367

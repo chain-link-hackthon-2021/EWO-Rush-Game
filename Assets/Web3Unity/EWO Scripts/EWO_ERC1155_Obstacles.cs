@@ -60,7 +60,7 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
 
     public void OndistributeRewards()
     {
-        // getAddressofOwner();
+        getAddressofOwner();
         distributeRewards();
     }
 

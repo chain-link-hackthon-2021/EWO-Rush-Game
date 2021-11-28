@@ -220,7 +220,6 @@ public class CharacterCollider : MonoBehaviour
 
 				ewo1115Obstacles.fetchObstacleIdType(ObstacleType[0], ObstacleType[1], ObstacleType[2]);
 				ewo1115Obstacles.fetchObstacleHitList(ObstaclesHit[0], ObstaclesHit[1], ObstaclesHit[2]);
-				ewo1115Obstacles.OngetAddressofOwner();
 				ClearLists();
 
 
