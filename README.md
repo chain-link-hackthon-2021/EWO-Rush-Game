@@ -13,19 +13,17 @@
 
 <center>
 <h1 align="center">
-Welcome to the COOLEST Defi+NFT Hodling Pool!
+Welcome to the EWO-Rush Metaverse!
 </h1>
 
-<img width="1000" src="./images/HodlTogether-Logo-final.png">
 
 <p align = center>
 <img src= "./images/built-with.png">
 <br>
-<img src="./images/aave-final-trans.png">
 <img src="./images/chainlink-final-trans.png">
 </p>
 </center>
 
 ## Introduction
 
-We introduce you to the **coolest community hodling pool** on _Ethereum- HodlTogether_, which is a _spicy amalgamation_ of the **Defi**, **NFTs** and **NGOs**. HodlTogether uniquely incentivizes the users to _Hodl_ their tokens which can be of any type such as _LINK_, _ZRX_, _BAT_, _SRX_, etc. for a long period of time. By doing so, they also contribute to the betterment of society and community development, as they donate a certain amount of their _Hodled tokens_ to the **NGO** associated with the _Hodling pool_.
+We introduce you to the **coolest Endless Runner Game** on _Ethereum- EWO-Rush_, which is a _Play to Earn game_ with awesome **Character NFTs**. The characters in this game are ERC-721 standard NFTs and they have different stats that are randomly generated using Chainlink VRF. These stats are- Speed, Strength and Agility.  
