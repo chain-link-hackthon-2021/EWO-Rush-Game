@@ -15,15 +15,18 @@
 <h1 align="center">
 Welcome to the EWO-Rush Metaverse!
 </h1>
-
-
 <p align = center>
-<img src= "./images/built-with.png">
 <br>
-<img src="./images/chainlink-final-trans.png">
 </p>
 </center>
 
 ## Introduction
 
-We introduce you to the **coolest Endless Runner Game** on _Ethereum- EWO-Rush_, which is a _Play to Earn game_ with awesome **Character NFTs**. The characters in this game are ERC-721 standard NFTs and they have different stats that are randomly generated using Chainlink VRF. These stats are- Speed, Strength and Agility.  
+We introduce you to the **coolest Endless Runner Game** on _Ethereum- EWO-Rush_, which is a _Play to Earn game_ with awesome **Character NFTs**. The characters in this game are ERC-721 standard NFTs and they have different stats that are randomly generated using Chainlink VRF. These stats are- Speed, Strength and Agility. Speed means how fast the player changes lanes, Strength means the length of the player's jump and Agility means the length of the player's slide. So these stats have an efect on the actual Gameplay.
+
+## Addresses of Smart Contracts Deployed (Rinkeby)
+- EWO Token: 0xC3ef707460f56d16c0c158C56a777EaD13Fa31c0
+- EWO NFTs: 0x4c6329444C47Fad0B1187a1e839D4645C991308B
+- GamePool: 0x74C9e31eaAd2F6531e9f52849a0a8D1fFbD52623
+- Character_NFTs: 
+
