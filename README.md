@@ -39,3 +39,10 @@ Here when the player's game is over when he hits obstacles 3 times. But here the
 3) 15 tokens go to the Land NFT owner where player's game was over
 4) 10 to the project team and future DAO 
 
+## Repositories
+ Here are the github repo links for front-end and smart contracts of our project.
+ - [Smart contracts](https://github.com/chainGers-2021/our-contracts)
+
+# Demo Video
+[![]](https://www.youtube.com/watch?v=AQFtyYifrtU "EWO-Rush-Demo-Video")
+
