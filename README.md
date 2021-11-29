@@ -41,8 +41,10 @@ Here when the player's game is over when he hits obstacles 3 times. But here the
 
 ## Repositories
  Here are the github repo links for front-end and smart contracts of our project.
- - [Smart contracts](https://github.com/chainGers-2021/our-contracts)
+ - [Smart contracts](https://github.com/Electrified-Wolf-Runners/Remix-IDE-Contracts)
+ - [ERC-721-NFT-contracts](https://github.com/Electrified-Wolf-Runners/ERC-721-NFT-contracts)
+ - [Unity-3d-NFT Project](https://github.com/Electrified-Wolf-Runners/Unity3d-NFT-Project)
 
-# Demo Video
-[![]](https://www.youtube.com/watch?v=AQFtyYifrtU "EWO-Rush-Demo-Video")
+# EWO Rush Demo Video
+- https://www.youtube.com/watch?v=AQFtyYifrtU 
 
