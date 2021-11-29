@@ -28,5 +28,5 @@ We introduce you to the **coolest Endless Runner Game** on _Ethereum- EWO-Rush_,
 - EWO Token: 0xC3ef707460f56d16c0c158C56a777EaD13Fa31c0
 - EWO NFTs: 0x4c6329444C47Fad0B1187a1e839D4645C991308B
 - GamePool: 0x74C9e31eaAd2F6531e9f52849a0a8D1fFbD52623
-- Character_NFTs: 
+- Character_NFTs: 0x8B7995c357592Ee93FD88bA16e146E619FcCFCD0
 
