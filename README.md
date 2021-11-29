@@ -24,9 +24,18 @@ Welcome to the EWO-Rush Metaverse!
 
 We introduce you to the **coolest Endless Runner Game** on _Ethereum- EWO-Rush_, which is a _Play to Earn game_ with awesome **Character NFTs**. The characters in this game are ERC-721 standard NFTs and they have different stats that are randomly generated using Chainlink VRF. These stats are- Speed, Strength and Agility. Speed means how fast the player changes lanes, Strength means the length of the player's jump and Agility means the length of the player's slide. So these stats have an efect on the actual Gameplay.
 
+## What's Different here?
+Here when the player's game is over when he hits obstacles 3 times. But here the obstacles are ERC-1155 standard NFTs that are owned by actual owners. So rewards go to the owners of these NFTs each time a player hits them. Also there is Land NFT whose owners get rewards when the player's game is over and he stops on their land!
+
 ## Addresses of Smart Contracts Deployed (Rinkeby)
 - EWO Token: 0xC3ef707460f56d16c0c158C56a777EaD13Fa31c0
 - EWO NFTs: 0x4c6329444C47Fad0B1187a1e839D4645C991308B
 - GamePool: 0x74C9e31eaAd2F6531e9f52849a0a8D1fFbD52623
 - Character_NFTs: 0x8B7995c357592Ee93FD88bA16e146E619FcCFCD0
+
+## In Game Tokenomics
+1) Player pays 100 EWO tokens as Game Fees
+2) 25 tokens go to the 1st obstacle, 2nd obstacle and 3rd obstacle owner each (75 in total)
+3) 15 tokens go to the Land NFT owner where player's game was over
+4) 10 to the project team and future DAO 
 
