@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Handles everything related to the collider of the character. This is actually an empty game object, NOT on the character prefab
@@ -11,9 +12,8 @@ using UnityEngine.AddressableAssets;
 public class CharacterCollider : MonoBehaviour
 {
 	public EWO_ERC1155_Obstacles ewo1115Obstacles;
-	public List<int> ObstacleType = new List<int>();
-	public List<int> ObstaclesHit = new List<int>();
-	int obstaclesHit = 0;
+	//public List<int> ObstacleType = new List<int>();
+	//public List<int> ObstaclesHit = new List<int>();
 	public List<TrackSegment> TrackSegmentHit = new List<TrackSegment>();
 	static int s_HitHash = Animator.StringToHash("Hit");
 	static int s_BlinkingValueHash;
@@ -107,8 +107,8 @@ public class CharacterCollider : MonoBehaviour
 
 	public void ClearLists()
 	{
-		ObstacleType.Clear();
-		ObstaclesHit.Clear();
+		//ObstacleType.Clear();
+		//ObstaclesHit.Clear();
 	}
 
 	protected void OnTriggerEnter(Collider c)
@@ -146,6 +146,7 @@ public class CharacterCollider : MonoBehaviour
 
 			if (ob != null)
 			{
+				/*
 				// This is 0 for GREEN_DUSTBIN, 1 for RED_BAR and 2 for BLUE_BAR
 				if (ob.name.Contains("HighBarrier"))
 					ObstacleType.Add(1);
@@ -156,6 +157,8 @@ public class CharacterCollider : MonoBehaviour
 
 				int randomNumber = (int)Random.Range(0, 9);
 				ObstaclesHit.Add(randomNumber);
+				*/
+				ob.Impacted();
 			}
 			else
 			{
@@ -181,6 +184,7 @@ public class CharacterCollider : MonoBehaviour
 			// The collision killed the player, record all data to analytics.
 			else
 			{
+				/*
 				//populate obstacle and land values
 				if (ob.transform.root.name.Contains("IndustrialWarehouse01"))
 					ewo1115Obstacles.landIdValues = 0;
@@ -220,7 +224,12 @@ public class CharacterCollider : MonoBehaviour
 
 				ewo1115Obstacles.fetchObstacleIdType(ObstacleType[0], ObstacleType[1], ObstacleType[2]);
 				ewo1115Obstacles.fetchObstacleHitList(ObstaclesHit[0], ObstaclesHit[1], ObstaclesHit[2]);
+				ewo1115Obstacles.OngetAddressofOwner();
+				ewo1115Obstacles.OndistributeRewards();
 				ClearLists();
+				*/
+				//ewo1115Obstacles.generateObstacleList();
+				//ewo1115Obstacles.OngetAddressofOwner();
 
 
 				m_Audio.PlayOneShot(controller.character.deathSound);
@@ -232,6 +241,7 @@ public class CharacterCollider : MonoBehaviour
 				m_DeathData.premium = controller.premium;
 				m_DeathData.score = controller.trackManager.score;
 				m_DeathData.worldDistance = controller.trackManager.worldDistance;
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
 			}
 		}

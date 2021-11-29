@@ -59,6 +59,11 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
         obstacleIdValues[0] = obHit1;
         obstacleIdValues[1] = obHit2;
         obstacleIdValues[2] = obHit3;
+
+        foreach(int ob in obstacleIdValues)
+        {
+            print(ob);
+        }
     }
 
     public void fetchObstacleIdType(int obType1, int obType2, int obType3)
@@ -67,6 +72,11 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
         obstacleIdType[0] = obType1;
         obstacleIdType[1] = obType2;
         obstacleIdType[2] = obType3;
+
+        foreach (int ob in obstacleIdType)
+        {
+            print(ob);
+        }
     }
 
     // set chain: ethereum, moonbeam, polygon etc
@@ -139,6 +149,11 @@ public class EWO_ERC1155_Obstacles : MonoBehaviour
         string args4 = JsonConvert.SerializeObject(obj4);
         string res = await Web3GL.SendContract(method, GamePoolABI, GamePoolContract, args4, value1, gasLimit, gasPrice);
         Debug.Log(res);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     async public void connectPayFees()

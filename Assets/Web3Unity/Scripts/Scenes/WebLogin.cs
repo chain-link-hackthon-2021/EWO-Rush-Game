@@ -9,14 +9,7 @@ public class WebLogin : MonoBehaviour
     public GameObject LoginUI;
     public GameObject LoadCharUI;
     public GameObject BackgroundUI;
-#if UNITY_EDITOR
-    private void Start()
-    {
-        LoginUI.SetActive(false);
-        LoadCharUI.SetActive(true);
-        BackgroundUI.SetActive(true);
-    }
-#else
+
     [DllImport("__Internal")]
     private static extern void Web3Connect();
 
@@ -70,7 +63,6 @@ public class WebLogin : MonoBehaviour
         // move to next scene
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-  
-#endif
+ 
 }
 
